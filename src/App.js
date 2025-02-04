@@ -1,12 +1,17 @@
+import { useSelector } from 'react-redux';
 
-import './App.css';
+import Cart from './components/Cart/Cart';
+import Layout from './components/Layout/Layout';
+import Products from './components/Shop/Products';
 
 function App() {
+  const showCart = useSelector((state) => state.ui.cartIsVisible);
+
   return (
-    <div>
-      <p>Learn React</p>
-    
-    </div>
+    <Layout>
+      {showCart && <Cart />}
+      <Products />
+    </Layout>
   );
 }
 
